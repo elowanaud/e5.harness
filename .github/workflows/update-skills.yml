@@ -1,0 +1,45 @@
+name: Update skills
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: update-skills-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  update-skills:
+    name: Update skills
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Update skills
+        run: npx skills update -p
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: automation/update-skills
+          delete-branch: true
+          commit-message: "chore(skills): update skills"
+          title: "chore(skills): update skills"
+          body: |
+            Weekly automated skills update.
+
+            - Schedule: Monday 09:00 UTC (`0 9 * * 1`)
+            - Command: `npx skills update`
+            - Behavior: updates this pull request when skill files change; creates no pull request when there are no changes.
