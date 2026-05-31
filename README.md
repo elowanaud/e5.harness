@@ -1,0 +1,50 @@
+<div align="center">
+
+# e5.harness
+
+[![skills.sh](https://skills.sh/b/elowanaud/e5.harness)](https://skills.sh/b/elowanaud/e5.harness)
+
+</div>
+
+A daily skill set for AI-assisted development, focused on clearer planning, better research, cleaner documentation, and more reliable agent workflows.
+
+## Quickstart
+
+1. Run the skills.sh installer for this GitHub repo:
+
+```bash
+npx skills@latest add https://github.com/elowanaud/e5.harness
+```
+
+2. Choose the skills you want and the coding agents to install them on.
+
+3. You're ready to go.
+
+If you're working from a local clone, inspect the installed project skills with:
+
+```bash
+npx skills list --json
+```
+
+## Reference
+
+### Planning
+
+Skills for aligning on direction before an agent starts building.
+
+- **[grill-me](./.agents/skills/grill-me/SKILL.md)** - Interview the user about a plan or design until each branch of the decision tree is resolved.
+- **[grill-architecture](./.agents/skills/grill-architecture/SKILL.md)** - Shape code and file architecture until responsibilities, contracts, dependencies, tests, verification, risks, and approval are clear.
+
+### Documentation
+
+Skills for replacing guesswork with current references and clear project documentation.
+
+- **[find-docs](./.agents/skills/find-docs/SKILL.md)** - Retrieve current documentation, API references, and code examples for developer technologies through Context7.
+- **[create-readme](./.agents/skills/create-readme/SKILL.md)** - Create a concise, well-structured project `README.md` after reviewing the workspace.
+- **[readme-blueprint-generator](./.agents/skills/readme-blueprint-generator/SKILL.md)** - Generate a comprehensive README blueprint from project documentation files when a repo has that structure.
+
+### Skill Engineering
+
+Tools for turning repeatable workflows into well-defined skills.
+
+- **[skill-creator](./.agents/skills/skill-creator/SKILL.md)** - Create skills, write test prompts, run evaluations, compare outputs, optimize trigger descriptions, and package `.skill` files.
